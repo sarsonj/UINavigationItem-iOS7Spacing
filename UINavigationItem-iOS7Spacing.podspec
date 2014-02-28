@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Marius Kažemėkaitis" => "marius@lemonlabs.lt" }
-  s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/lemonlabs/UINavigationItem-iOS7Spacing.git", :tag => s.version.to_s }
+  s.platform     = :ios, '5.0'
+  s.source       = { :git => "https://github.com/sarsonj/UINavigationItem-iOS7Spacing.git", :tag => s.version.to_s }
   s.source_files = 'UINavigationItem+iOS7Spacing.{m,h}'
   s.requires_arc = true
 

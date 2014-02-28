@@ -77,7 +77,7 @@
 }
 
 + (void)mk_swizzle:(SEL)aSelector
-{
+{    
     SEL bSelector = NSSelectorFromString([NSString stringWithFormat:@"mk_%@", NSStringFromSelector(aSelector)]);
     
     Method m1 = class_getInstanceMethod(self, aSelector);
@@ -88,10 +88,13 @@
 
 + (void)load
 {
-    [self mk_swizzle:@selector(setLeftBarButtonItem:)];
-    [self mk_swizzle:@selector(setLeftBarButtonItems:)];
-    [self mk_swizzle:@selector(setRightBarButtonItem:)];
-    [self mk_swizzle:@selector(setRightBarButtonItems:)];
+
+    if ([self isIOS7]) {
+        [self mk_swizzle:@selector(setLeftBarButtonItem:)];
+        [self mk_swizzle:@selector(setLeftBarButtonItems:)];
+        [self mk_swizzle:@selector(setRightBarButtonItem:)];
+        [self mk_swizzle:@selector(setRightBarButtonItems:)];        
+    }
 }
 
 @end
