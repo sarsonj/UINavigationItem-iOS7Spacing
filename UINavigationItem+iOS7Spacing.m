@@ -10,7 +10,7 @@
 
 @implementation UINavigationItem (iOS7Spacing)
 
-- (BOOL)isIOS7
++(BOOL)isIOS7
 {
     return ([[[UIDevice currentDevice] systemVersion] compare:@"7" options:NSNumericSearch] != NSOrderedAscending);
 }
@@ -24,20 +24,18 @@
 
 - (void)mk_setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem
 {
-    if ([self isIOS7] && leftBarButtonItem) {
+    if (leftBarButtonItem) {
         [self mk_setLeftBarButtonItem:nil];
         [self mk_setLeftBarButtonItems:@[[self spacer], leftBarButtonItem]];
     } else {
-        if ([self isIOS7]) {
-            [self mk_setLeftBarButtonItems:nil];
-        }
+        [self mk_setLeftBarButtonItems:nil];
         [self mk_setLeftBarButtonItem:leftBarButtonItem];
     }
 }
 
 - (void)mk_setLeftBarButtonItems:(NSArray *)leftBarButtonItems
 {
-    if ([self isIOS7] && leftBarButtonItems && leftBarButtonItems.count > 0) {
+    if (leftBarButtonItems && leftBarButtonItems.count > 0) {
         
         NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:leftBarButtonItems.count + 1];
         [items addObject:[self spacer]];
@@ -51,20 +49,18 @@
 
 - (void)mk_setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem
 {
-    if ([self isIOS7] && rightBarButtonItem) {
+    if (rightBarButtonItem) {
         [self mk_setRightBarButtonItem:nil];
         [self mk_setRightBarButtonItems:@[[self spacer], rightBarButtonItem]];
     } else {
-        if ([self isIOS7]) {
-            [self mk_setRightBarButtonItems:nil];
-        }
+        [self mk_setRightBarButtonItems:nil];
         [self mk_setRightBarButtonItem:rightBarButtonItem];
     }
 }
 
 - (void)mk_setRightBarButtonItems:(NSArray *)rightBarButtonItems
 {
-    if ([self isIOS7] && rightBarButtonItems && rightBarButtonItems.count > 0) {
+    if (rightBarButtonItems && rightBarButtonItems.count > 0) {
         
         NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:rightBarButtonItems.count + 1];
         [items addObject:[self spacer]];
